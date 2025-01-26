@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #0a1a2f;
+            color: #e1e7ed;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            min-height: 100vh;
+        }
+
+        .breach-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #0d2137;
+            border: 1px solid #2a4d6e;
+            border-radius: 4px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+           
+        }
+
+        .severity-badge {
+            background: #7a1a1a;
+            color: #ff9090;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        .timeline {
+            border-left: 3px solid #2a4d6e;
+            margin: 25px 0;
+            padding-left: 25px;
+        }
+
+        .compromised-data {
+            background: #11253a;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .response-steps {
+            background: #1a2d40;
+            padding: 25px;
+            margin-top: 30px;
+            border-radius: 4px;
+        }
+
+        h1 {
+            color: #ff4444;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: #6ba2ff;
+            font-size: 20px;
+            margin-top: 25px;
+        }
+
+        .legal-text {
+            font-size: 12px;
+            color: #879eb5;
+            margin-top: 40px;
+            border-top: 1px solid #2a4d6e;
+            padding-top: 20px;
+        }
+
+        .contact-box {
+            background: #11253a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 600px) {
+            .breach-container {
+                padding: 20px;
+                margin: 20px;
+            }
+        }
+        body { margin:0; padding:20px; background:#0a1a2f; color:#e1e7ed; font-family:'Segoe UI', sans-serif; }
+        /* Add clock styles */
+        .alert-clock {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            background: #7a1a1a;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-family: monospace;
+            box-shadow: 0 0 15px rgba(255,50,50,0.4);
+        }
+        .qr-alert {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #11253a;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #ff4444;
+            text-align: center;
+        }
+
+        #qrcode {
+            margin: 15px auto; /* Centered */
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            width: 150px; /* Fixed size */
+            height: 150px;
+        }
+
+        .qr-warning {
+            color: #ff9090;
+            max-width: 300px;
+            font-size: 0.9em;
+        }
+
+        /* Add error message styling */
+        .qr-error {
+            color: #ff4444;
+            padding: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="breach-container">
+        <div class="severity-badge">
+            SEVERITY LEVEL: CRITICAL
+        </div>
+
+        <!-- Real-time clock display -->
+    <div class="alert-clock" id="liveClock">Loading time...</div>
+
+    <!-- Previous breach notification content -->
+    <div class="breach-container">
+        <h1>🚨 SECURITY BREACH ALERT 🚨</h1>
+        <p><strong>Notification Date:</strong> [Current Date]</p>
+        <p><strong>Notification Time:</strong> [Current Time]</p>
+    </div>
+
+    <div class="qr-alert">
+        <div class="qr-warning">
+            ⚠️ WARNING: Malicious QR Code detected in system logs
+        </div>
+        <div id="qrcode">
+            <!-- Error fallback -->
+            <div class="qr-error" id="qrcode-error"></div>
+        </div>
+        <div class="qr-warning">
+            Scan only if you recognize this security source
+        </div>
+    </div>
+
+
+        <div class="timeline">
+            <h2>Incident Overview</h2>
+            <p>Our security systems detected unauthorized access to sensitive data through malicious QR code infiltration. Attackers potentially accessed:</p>
+            
+            <div class="compromised-data">
+                <h3>⚠️ Compromised Information May Include:</h3>
+                <ul>
+                    <li>User credentials (usernames & passwords)</li>
+                    <li>Financial information (payment card details)</li>
+                    <li>Personally Identifiable Information (PII)</li>
+                    <li>Internal system access tokens</li>
+                    <li>Employee/customer contact details</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="response-steps">
+            <h2>Required Actions</h2>
+            <ol>
+                <li>Immediately reset all account passwords</li>
+                <li>Enable multi-factor authentication (MFA)</li>
+                <li>Monitor financial statements for suspicious activity</li>
+                <li>Update security questions and recovery emails</li>
+                <li>Report any suspicious activity to IT security</li>
+            </ol>
+        </div>
+
+        <div class="contact-box">
+            <h3>Security Support</h3>
+            <p>24/7 Incident Response Hotline: 1-800-XXX-XXXX<br>
+            Email: security.abc@company.com<br>
+            Reference Case #: [21XX-34XXX-8XXX]</p>
+        </div>
+
+        <div class="legal-text">
+            <p>This notice is sent in compliance with federal and state data breach notification laws. We recommend reviewing our updated <a href="#">Privacy Policy</a> and <a href="#">Security Practices</a>. Company name is working with cybersecurity experts and law enforcement to investigate this incident.</p>
+        </div>
+    </div>
+    <script>
+        // Real-time clock function
+        function updateClock() {
+            const now = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+            
+            document.getElementById('liveClock').innerHTML = `
+                ${now.toLocaleDateString('en-US', dateOptions)}<br>
+                ${now.toLocaleTimeString('en-US', timeOptions)}
+            `;
+        }
+
+        // Update clock immediately and every second
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        // Change document title dynamically
+        let alertState = true;
+        setInterval(() => {
+            document.title = alertState 
+                ? "🚨 SECURITY BREACH - IMMEDIATE ACTION REQUIRED 🚨" 
+                : "⚠️ UNAUTHORIZED ACCESS DETECTED - COMPANY SYSTEMS";
+            alertState = !alertState;
+        }, 3000); // Blink title every 3 seconds
+ // QR Code Generation with error handling
+ function generateQR() {
+            try {
+                new QRCode(document.getElementById("qrcode"), {
+                    text: "https://www.cisa.gov/sites/default/files/publications/QR%20Code%20Security%20Awareness%20Poster.pdf",
+                    width: 128,
+                    height: 128,
+                    colorDark: "#000000", // Higher contrast
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            } catch (error) {
+                document.getElementById("qrcode-error").innerHTML = 
+                    "SECURITY ALERT: QR Code generator failed - Do not scan any codes!";
+                document.getElementById("qrcode").style.backgroundColor = "#7a1a1a";
+            }
+        }
+
+        // Generate QR after ensuring library is loaded
+        if (typeof QRCode === 'undefined') {
+            document.getElementById("qrcode-error").innerHTML = 
+                "CRITICAL ERROR: Security components missing - Contact IT immediately!";
+        } else {
+            generateQR();
+        }
+
+        // Pulsating border effect
+        setInterval(() => {
+            document.querySelector('.qr-alert').style.borderColor = 
+                Math.random() > 0.5 ? "#ff4444" : "#7a1a1a";
+        }, 500);
+    </script>
+</body>
+</html>
